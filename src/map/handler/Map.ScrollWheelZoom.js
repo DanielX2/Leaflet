@@ -19,6 +19,16 @@ L.Map.ScrollWheelZoom = L.Handler.extend({
 	},
 
 	_onWheelScroll: function (e) {
+		var element = e.srcElement;
+	    while (element != undefined) {
+	        if (L.DomUtil.hasClass(element, 'leaflet-control-scrollable')) {
+	            return;
+	        }
+	        else {
+	            element = element.parentElement;
+	        }
+	    }
+	
 		var delta = L.DomEvent.getWheelDelta(e);
 
 		this._delta += delta;

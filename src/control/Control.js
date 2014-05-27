@@ -44,6 +44,10 @@ L.Control = L.Class.extend({
 		    corner = map._controlCorners[pos];
 
 		L.DomUtil.addClass(container, 'leaflet-control');
+		
+		if (this.options.scrollable) {
+		    L.DomUtil.addClass(container, 'leaflet-control-scrollable');
+		}
 
 		if (pos.indexOf('bottom') !== -1) {
 			corner.insertBefore(container, corner.firstChild);
