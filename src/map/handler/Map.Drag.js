@@ -19,7 +19,10 @@ L.Map.Drag = L.Handler.extend({
 	addHooks: function () {
 		if (!this._draggable) {
 			var map = this._map;
-
+			
+			this._positions = [];
+			this._times = [];
+			
 			this._draggable = new L.Draggable(map._mapPane, map._container);
 
 			this._draggable.on({
